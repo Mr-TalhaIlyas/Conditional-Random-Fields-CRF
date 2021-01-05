@@ -29,7 +29,7 @@ It takes following inputs.
 
 CRF’s are used for smoothing the noisy segmentation maps. See image below.
 
-![alt text](img2.png)
+![alt text](https://github.com/Mr-TalhaIlyas/Conditional-Random-Fields-CRF/blob/master/screens/img2.png)
 
 ##Types of CRF
 
