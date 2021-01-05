@@ -31,7 +31,7 @@ CRF’s are used for smoothing the noisy segmentation maps. See image below.
 
 ![alt text](https://github.com/Mr-TalhaIlyas/Conditional-Random-Fields-CRF/blob/master/screens/img2.png)
 
-##Types of CRF
+## Types of CRF
 
 ### Grid CRF
 
@@ -49,7 +49,7 @@ and the appearace kernel controls which regions of segemneted image should be co
 
 ![alt text](https://github.com/Mr-TalhaIlyas/Conditional-Random-Fields-CRF/blob/master/screens/img3.png)
 
-####You can control the parameters of these kernels as follwoing
+#### You can control the parameters of these kernels as follwoing
 ```
 # inside the CRF function and class change;
 #        1. increasing sxy puts more focus on changing intensity
@@ -58,7 +58,7 @@ and the appearace kernel controls which regions of segemneted image should be co
 ```
 ## FC-CRF in Machine Learning Pipeling
 
-![alt text](img6.png)
+![alt text](https://github.com/Mr-TalhaIlyas/Conditional-Random-Fields-CRF/blob/master/screens/img6.png)
 
 ## Example Usage
 
