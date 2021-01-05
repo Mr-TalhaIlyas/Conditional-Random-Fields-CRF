@@ -35,7 +35,7 @@ CRF’s are used for smoothing the noisy segmentation maps. See image below.
 
 ### Grid CRF
 
-![alt text](img4.png)
+![alt text](https://github.com/Mr-TalhaIlyas/Conditional-Random-Fields-CRF/blob/master/screens/img4.png)
 
 ### Fully connected CRF
 This is the one implemented in this repo.
