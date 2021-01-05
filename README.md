@@ -72,3 +72,7 @@ CRF_op = crf.start()
 plt.imshow(CRF_op)
 
 ```
+## Visual Results 
+For binar and multiclass segementation
+
+![alt text](https://github.com/Mr-TalhaIlyas/Conditional-Random-Fields-CRF/blob/master/screens/img7.png)
