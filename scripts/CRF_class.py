@@ -5,13 +5,7 @@ import pydensecrf.densecrf as dcrf
 from pydensecrf.utils import compute_unary, unary_from_softmax
 import tensorflow as tf
 import imageio
-'''
-This script implements CRF as described in Deeplab paper it takes about 0.2 seconds per image
-it takes three inputs.
-1.
-2.
-3.
-'''
+
 n_classes = 30
 pallet =  np.array([[[ 0,  0,  0],
                     [ 0,  0,  0],
