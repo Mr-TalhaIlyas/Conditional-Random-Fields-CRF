@@ -2,7 +2,7 @@
 
 This repo implements CRF as described in Deeplab paper it takes about 0.2 seconds per image. Following image is taken form **DeepLab** paper
 
-![alt text](img1.png)
+![alt text](https://github.com/Mr-TalhaIlyas/Conditional-Random-Fields-CRF/blob/master/screens/img1.png)
 
 It takes following inputs.
 
