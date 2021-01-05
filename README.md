@@ -40,14 +40,14 @@ CRF’s are used for smoothing the noisy segmentation maps. See image below.
 ### Fully connected CRF
 This is the one implemented in this repo.
 
-![alt text](img5.png)
+![alt text](https://github.com/Mr-TalhaIlyas/Conditional-Random-Fields-CRF/blob/master/screens/img5.png)
 
 ## Some mathematical Background
 
 FC CRF consists of two Guassian Kernels one is called appearance kernel and other is called spatioal kernel. The spatial kernel is used of controlling the smoothness of the segmented regions.
 and the appearace kernel controls which regions of segemneted image should be combined to one after lookin at origina input image.
 
-![alt text](img3.png)
+![alt text](https://github.com/Mr-TalhaIlyas/Conditional-Random-Fields-CRF/blob/master/screens/img3.png)
 
 ####You can control the parameters of these kernels as follwoing
 ```
