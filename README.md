@@ -4,14 +4,14 @@ This repo implements CRF as described in Deeplab paper it takes about 0.2 second
 
 ![alt text](https://github.com/Mr-TalhaIlyas/Conditional-Random-Fields-CRF/blob/master/screens/img1.png)
 
-It takes following inputs.
+It takes following inputs.(see dir `sample_data` for sample masks) `gt` are just groundtruths they are not used during caculation
 
 ```
     img_path : path to an image, 
                     Format [H, W, 3]; values ranging from [0, 255]
     model_op_path : path model output of the same input image.
                     Format [H, W]; values ranging from [0, num_of_classes]
-                    (see dir data for sample masks)
+                    
     num_of_classes : number of classes in a dataset e.g. in cityscape has 30 classes
     clr_op : color the output or not a bool
     pallet: a [1 x no of classes x 3] array containing the RGB values of classes, type float32
