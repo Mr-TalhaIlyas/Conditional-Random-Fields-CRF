@@ -5,7 +5,11 @@ import pydensecrf.densecrf as dcrf
 from pydensecrf.utils import compute_unary, unary_from_softmax
 import tensorflow as tf
 import imageio
-
+import matplotlib as mpl
+mpl.rcParams['figure.dpi'] = 300
+'''
+This script implements CRF as described in Deeplab paper it takes about 0.2 seconds per image.
+'''
 n_classes = 30
 pallet =  np.array([[[ 0,  0,  0],
                     [ 0,  0,  0],
@@ -41,17 +45,15 @@ pallet =  np.array([[[ 0,  0,  0],
                     [ 0, 80,100],
                     [ 0,  0,230],
                     [119, 11, 32]]], np.uint8) / 255
-class CRF:
+class Seg_CRF:
     '''
 
     Parameters
     ----------
-    model_op_path : path to an image, 
+    img_path : path to an image, 
                     Format [H, W, 3]; values ranging from [0, 255]
     model_op_path : path model output of the same input image.
                     Format [H, W]; values ranging from [0, num_of_classes]
-    gt_path : path to ground truth of the same image. 
-                Format [H, W]; values ranging from [0, num_of_classes]
     num_of_classes : number of classes in a dataset e.g. in cityscape has 30 classes
     clr_op : color the output or not a bool
     pallet: a [1 x no of classes x 3] array containing the RGB values of classes, type float32
@@ -61,11 +63,10 @@ class CRF:
     crf op image as array range [0, 1] grayscael or RGB
     
     '''
-    def __init__(self, img_path, model_op_path, gt_path, num_of_classes, clr_op=False, pallet = None):
+    def __init__(self, img_path, model_op_path, num_of_classes, clr_op=False, pallet = None):
         
         self.img_path = img_path
         self.model_op_path = model_op_path
-        self.gt_path = gt_path
         self.num_of_classes = num_of_classes
         self.img_w = 1024
         self.img_h = 512
@@ -76,10 +77,8 @@ class CRF:
         self.image = cv2.imread(self.img_path) #/ 255    #D:/Anaconda/Image_analysis/cat.png
         self.image = cv2.resize(self.image, (self.img_w, self.img_h))
         self.image = cv2.cvtColor(self.image, cv2.COLOR_BGR2RGB)
-        mask_o = cv2.imread(self.model_op_path, 0)# / 255
-        self.mask = cv2.resize(mask_o, (self.img_w, self.img_h))
-        #mask = mask_o
-        self.GT = cv2.imread(self.gt_path, 0)
+        self.mask = cv2.imread(self.model_op_path, 0)# / 255
+        self.mask = cv2.resize(self.mask, (self.img_w, self.img_h))
         
     def start(self):
         # covnert masks form [W, H] to [W, H , n_classes]
@@ -145,11 +144,10 @@ class CRF:
         return rgb
 #%%        
 # Usage
-img_path='C:/Users/Talha/Desktop/img_2032.jpg'
-model_op_path='C:/Users/Talha/Desktop/img_2032_m.jpg'
-gt_path='C:/Users/Talha/Desktop/img_2032_m.jpg'
+img_path='D:/Anaconda/Datasets/vistas/vistas/val/images/images/_1Gn_xkw7sa_i9GU4mkxxQ.jpg'
+model_op_path='D:/Anaconda/Datasets/vistas/vistas/val/masks/masks/_1Gn_xkw7sa_i9GU4mkxxQ.png'
 
-crf = CRF(img_path, model_op_path, gt_path, 30, clr_op=True, pallet=pallet)
+crf = Seg_CRF(img_path, model_op_path, 66, clr_op=True, pallet=pallet)
 CRF_op = crf.start()
 plt.imshow(CRF_op)
 
