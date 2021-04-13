@@ -7,14 +7,20 @@ This repo implements CRF as described in Deeplab paper it takes about 0.2 second
 It takes following inputs.(see dir `sample_data` for sample masks) `gt` are just groundtruths they are not used during caculation
 
 ```
-    img_path : path to an image, 
-                    Format [H, W, 3]; values ranging from [0, 255]
-    model_op_path : path model output of the same input image.
-                    Format [H, W]; values ranging from [0, num_of_classes]
-                    
-    num_of_classes : number of classes in a dataset e.g. in cityscape has 30 classes
-    clr_op : color the output or not a bool
-    pallet: a [1 x no of classes x 3] array containing the RGB values of classes, type float32
+        ⚠ Zero pixels are consdered background
+        img_path : path to an image, 
+                        Format [H, W, 3]; values ranging from [0, 255]
+        model_op_path : path model output of the same input image.
+                        Format [H, W]; values ranging from [0, num_of_classes]
+        num_of_classes : number of classes in a dataset e.g. in cityscape has 30 classes
+        clr_op : color the output or not a bool
+        pallet2use : see https://pypi.org/project/gray2color/ for details
+        img_w : for resizing image and mask to same size default is 1024
+        img_h : for resizing image and mask to same size default is 512
+        apperance_kernel : The PairwiseBilateral term in CRF a list of values in order [sxy, srgb, compat]  
+                            default values are [8, 164, 100]
+        spatial_kernel : The PairwiseGaussian term in CRF a list of values in order [sxy, compat]  
+                            default values are [3, 10]
 ```
 ## Requirements
 ```
@@ -22,6 +28,7 @@ Python <= 3.6
 pydensecrf
 cv2
 matplotlib
+gray2color
 ```
 ## Why CRF?
 
@@ -61,13 +68,34 @@ and the appearace kernel controls which regions of segemneted image should be co
 ## Example Usage
 
 ```python
-img_path='../img.jpg'
-model_op_path='../img.png'
 
-crf = CRF(img_path, model_op_path, gt_path, 30, clr_op=True, pallet=pallet)
-CRF_op = crf.start()
-plt.imshow(CRF_op)
+# Usage
+img_path='D:/Anaconda/Image_analysis/cat.png'
+model_op_path='D:/Anaconda/Image_analysis/mask.png'
 
+crf = Seg_CRF(img_path, model_op_path, 2, img_w=1024, img_h=512, clr_op=True, pallet2use ='cityscape')
+
+gray, rgb = crf.start()
+plt.imshow(rgb)
+
+```
+## Appearance and Spatial Kernel
+
+```python
+# Default Values are
+apperance_kernel = [8, 164, 100] # PairwiseBilateral [sxy, srgb, compat]  
+spatial_kernel = [3, 10]         # PairwiseGaussian  [sxy, compat] 
+
+# or if you want to to specify seprately for each XY direction and RGB color channel then
+
+apperance_kernel = [(1.5, 1.5), (64, 64, 64), 100] # PairwiseBilateral [sxy, srgb, compat]  
+spatial_kernel = [(0.5, 0.5), 10]                  # PairwiseGaussian  [sxy, compat] 
+# Use like
+crf = Seg_CRF(img_path, model_op_path, 2, img_w=1024, img_h=512,
+                 apperance_kernel=apperance_kernel, spatial_kernel=spatial_kernel,
+                 clr_op=True, pallet2use ='cityscape')
+
+gray, rgb = crf.start()
 ```
 ## Visual Results 
 For binar and multiclass segementation
