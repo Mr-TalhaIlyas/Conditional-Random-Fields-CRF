@@ -1,9 +1,35 @@
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) ![PyPI](https://img.shields.io/pypi/v/a) [![Downloads](https://static.pepy.tech/personalized-badge/seg-crf?period=month&units=international_system&left_color=black&right_color=orange&left_text=Downloads)](https://pepy.tech/project/seg-crf)
+
 # Fully Connected CRF
 
 This repo implements CRF as described in Deeplab paper it takes about 0.2 seconds per image. Following image is taken form **DeepLab** paper
 
 ![alt text](https://github.com/Mr-TalhaIlyas/Conditional-Random-Fields-CRF/blob/master/screens/img1.png)
 
+## Requirements
+
+```
+Python <= 3.6
+pydensecrf
+cv2
+matplotlib
+gray2color
+```
+## Usage
+
+```python
+
+from seg_crf import Seg_CRF
+
+img_path='D:/Anaconda/Image_analysis/cat.png'
+model_op_path='D:/Anaconda/Image_analysis/mask.png'
+
+crf = Seg_CRF(img_path, model_op_path, 2, img_w=1024, img_h=512, clr_op=True, pallet2use ='cityscape')
+
+gray, rgb = crf.start()
+plt.imshow(rgb)
+
+```
 It takes following inputs.(see dir `sample_data` for sample masks) `gt` are just groundtruths they are not used during caculation
 
 ```
@@ -22,14 +48,7 @@ It takes following inputs.(see dir `sample_data` for sample masks) `gt` are just
         spatial_kernel : The PairwiseGaussian term in CRF a list of values in order [sxy, compat]  
                             default values are [3, 10]
 ```
-## Requirements
-```
-Python <= 3.6
-pydensecrf
-cv2
-matplotlib
-gray2color
-```
+
 ## Why CRF?
 
 CRF’s are used for smoothing the noisy segmentation maps. See image below.
@@ -61,24 +80,6 @@ and the appearace kernel controls which regions of segemneted image should be co
 #        2. if we increase srgb the pixels in close proximity will be assigned one class 
 #           (high value will cause the erosion like effect at boundaries)
 ```
-## FC-CRF in Machine Learning Pipeling
-
-![alt text](https://github.com/Mr-TalhaIlyas/Conditional-Random-Fields-CRF/blob/master/screens/img6.png)
-
-## Example Usage
-
-```python
-
-# Usage
-img_path='D:/Anaconda/Image_analysis/cat.png'
-model_op_path='D:/Anaconda/Image_analysis/mask.png'
-
-crf = Seg_CRF(img_path, model_op_path, 2, img_w=1024, img_h=512, clr_op=True, pallet2use ='cityscape')
-
-gray, rgb = crf.start()
-plt.imshow(rgb)
-
-```
 ## Appearance and Spatial Kernel
 
 ```python
@@ -97,6 +98,11 @@ crf = Seg_CRF(img_path, model_op_path, 2, img_w=1024, img_h=512,
 
 gray, rgb = crf.start()
 ```
+## FC-CRF in Machine Learning Pipeling
+
+![alt text](https://github.com/Mr-TalhaIlyas/Conditional-Random-Fields-CRF/blob/master/screens/img6.png)
+
+
 ## Visual Results 
 For binar and multiclass segementation
 
