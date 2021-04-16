@@ -15,6 +15,11 @@ cv2
 matplotlib
 gray2color
 ```
+## Installation
+via [PyPi](https://pypi.org/project/model-profiler/) or
+```
+pip install model-profiler
+```
 ## Usage
 
 ```python
