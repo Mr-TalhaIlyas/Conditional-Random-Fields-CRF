@@ -16,7 +16,7 @@ matplotlib
 gray2color
 ```
 ## Installation
-via [PyPi](https://pypi.org/project/seg-crf//) or
+via [PyPi](https://pypi.org/project/seg-crf/) or
 ```
 pip install seg-crf
 ```
