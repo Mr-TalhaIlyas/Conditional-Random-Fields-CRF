@@ -53,7 +53,7 @@ It takes following inputs.(see dir `sample_data` for sample masks) `gt` are just
         spatial_kernel : The PairwiseGaussian term in CRF a list of values in order [sxy, compat]  
                             default values are [3, 10]
 ```
-
+More about spatial and apperance kernel below.
 ## Why CRF?
 
 CRF’s are used for smoothing the noisy segmentation maps. See image below.
