@@ -16,9 +16,9 @@ matplotlib
 gray2color
 ```
 ## Installation
-via [PyPi](https://pypi.org/project/model-profiler/) or
+via [PyPi](https://pypi.org/project/seg-crf//) or
 ```
-pip install model-profiler
+pip install seg-crf
 ```
 ## Usage
 
