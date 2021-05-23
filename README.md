@@ -1,4 +1,4 @@
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) ![PyPI](https://img.shields.io/pypi/v/a) [![Downloads](https://static.pepy.tech/personalized-badge/seg-crf?period=month&units=international_system&left_color=black&right_color=orange&left_text=Downloads)](https://pepy.tech/project/seg-crf)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) ![PyPI](https://img.shields.io/pypi/v/a) [![Downloads](https://pepy.tech/badge/seg-crf)](https://pepy.tech/project/seg-crf)
 
 # Fully Connected CRF
 
