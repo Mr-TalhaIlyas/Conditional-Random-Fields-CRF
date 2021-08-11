@@ -20,6 +20,12 @@ via [PyPi](https://pypi.org/project/seg-crf/) or
 ```
 pip install seg-crf
 ```
+
+if you get error installing due `pydensecrf` then follow this [link](https://github.com/lucasb-eyer/pydensecrf) or by
+
+```
+pip install git+https://github.com/lucasb-eyer/pydensecrf.git
+```
 ## Usage
 
 ```python
