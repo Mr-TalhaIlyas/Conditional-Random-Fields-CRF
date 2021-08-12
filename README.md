@@ -21,7 +21,7 @@ via [PyPi](https://pypi.org/project/seg-crf/) or
 pip install seg-crf
 ```
 
-if you get error installing due `pydensecrf` then follow this [link](https://github.com/lucasb-eyer/pydensecrf) or by
+if you get error during installation due to `pydensecrf` then follow this [link](https://github.com/lucasb-eyer/pydensecrf) to resolve it or just type,
 
 ```
 pip install git+https://github.com/lucasb-eyer/pydensecrf.git
