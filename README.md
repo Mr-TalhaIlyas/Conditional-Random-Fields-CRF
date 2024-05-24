@@ -10,14 +10,18 @@ This repo implements CRF as described in Deeplab paper it takes about 0.2 second
 
 ```
 Python <= 3.6
-pydensecrf
+pydensecrf  // Recomended to install before hand via conda-forge see below
 cv2
 matplotlib
 gray2color
 ```
+
 ## Installation
 via [PyPi](https://pypi.org/project/seg-crf/) or
 ```
+# first install this to avoid any error.
+conda install -c conda-forge pydensecrf
+# then go here
 pip install seg-crf
 ```
 
